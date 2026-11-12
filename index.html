@@ -1,1 +1,1090 @@
-https://share.gemini.google/b7KbMLzxCmbK
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宜蘭山海・三日慢旅 | 2026 紀行手冊</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Serif TC & Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            bg: '#F7F7F5',      // 溫潤米灰紙張底色
+                            card: '#FFFFFF',    // 純白卡片
+                            subtle: '#E8EAE6',  // 淺霧灰次要區塊
+                            border: '#D6D9D3',  // 1px 細緻框線
+                        },
+                        ink: {
+                            primary: '#2C302E', // 深炭墨色主文字
+                            muted: '#646B67',   // 岩灰次要文字
+                            light: '#8F9692',   // 淡灰時間輔助
+                        },
+                        sage: {
+                            dark: '#2F3E34',    // 深森林綠（強調/Hover）
+                            DEFAULT: '#4A5D4E', // 主視覺鼠尾草綠
+                            light: '#7F9484',   // 淺霧綠
+                            tint: '#EDF1EE',    // 極淡綠底色
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* 日式直書排版裝飾 */
+        .writing-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+        /* 數字等寬對齊 */
+        .tabular-nums {
+            font-variant-numeric: tabular-nums;
+        }
+        /* 隱藏橫向捲軸但保留滑動功能 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* 細微紙張質感陰影 */
+        .editorial-shadow {
+            box-shadow: 0 2px 12px -4px rgba(44, 48, 46, 0.05);
+        }
+        /* 平滑過渡 */
+        .fade-in {
+            animation: fadeIn 0.35s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-stone-bg text-ink-primary font-sans antialiased selection:bg-sage selection:text-white">
+
+    <!-- 頂部通知 Toast (取代 alert) -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform translate-y-2">
+        <div class="bg-ink-primary text-stone-bg px-5 py-2.5 rounded-full text-xs tracking-wider shadow-lg flex items-center gap-2 border border-ink-muted/30">
+            <span class="w-1.5 h-1.5 rounded-full bg-sage-light"></span>
+            <span id="toast-message">已複製行程至剪貼簿</span>
+        </div>
+    </div>
+
+    <!-- 主容器：模擬日式雜誌版面比例 -->
+    <div class="max-w-3xl mx-auto min-h-screen flex flex-col border-x border-stone-border/60 bg-stone-bg">
+
+        <!-- 1. Hero 雜誌封面區塊 -->
+        <header class="relative px-6 pt-10 pb-8 sm:px-10 sm:pt-14 sm:pb-10 border-b border-stone-border bg-gradient-to-b from-[#E8EAE6] to-stone-bg">
+            <!-- 右上角直書裝飾標籤 -->
+            <div class="absolute top-8 right-6 sm:right-10 flex items-start gap-2 text-ink-muted select-none">
+                <span class="writing-vertical text-[11px] tracking-[0.28em] font-serif border-l border-stone-border pl-1.5 py-1">
+                    宜蘭三日紀行・二〇二六
+                </span>
+                <span class="writing-vertical text-[10px] tracking-[0.2em] text-sage font-medium pt-2">
+                    山海與溫泉
+                </span>
+            </div>
+
+            <!-- 刊頭小標 -->
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-sm bg-sage-tint border border-sage-light/40 text-sage text-[11px] tracking-widest mb-4">
+                <span>HOME — YILAN</span>
+                <span class="text-sage-light">|</span>
+                <span class="tabular-nums">11.14 — 11.16</span>
+            </div>
+
+            <!-- 主標題 -->
+            <h1 class="font-serif text-2xl sm:text-4xl font-semibold tracking-wider text-ink-primary leading-snug pr-12">
+                宜蘭山海・三日慢旅
+            </h1>
+            <p class="mt-2.5 text-xs sm:text-sm text-ink-muted tracking-wide leading-relaxed max-w-xl">
+                13人家族同行・A/B/C 三車自駕紀行。從頭城海岸線晨光、清水地熱包場、雲霧繚繞的見晴古道，到礁溪暖湯與在地風味合菜。
+            </p>
+
+            <!-- 兩晚住宿快速資訊卡（含訂房連結 + Google Maps） -->
+            <div class="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <!-- Day 1 住宿 -->
+                <div class="p-4 rounded-xl bg-stone-card border border-stone-border editorial-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] text-sage font-medium tracking-wider">
+                            <span class="px-2 py-0.5 bg-sage-tint rounded text-[10px]">DAY 1 宿・冬山鄉</span>
+                            <span>包棟民宿</span>
+                        </div>
+                        <p class="mt-2 font-serif text-base font-semibold text-ink-primary">
+                            甜蜜的家包棟民宿
+                        </p>
+                    </div>
+                    <div class="mt-3.5 pt-3 border-t border-stone-border/60 flex items-center gap-2">
+                        <a href="https://reurl.cc/mz8pj1" target="_blank" rel="noopener noreferrer" 
+                           class="flex-1 inline-flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-lg bg-sage text-white hover:bg-sage-dark text-xs font-medium transition-colors">
+                            <span>民宿介紹</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=%E5%AE%9C%E8%98%AD%E5%86%AC%E5%B1%B1%E7%94%9C%E8%9C%9C%E7%9A%84%E5%AE%B6%E5%8C%85%E6%A3%9F%E6%B0%91%E5%AE%BF" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-1 py-1.5 px-2.5 rounded-lg bg-stone-bg hover:bg-stone-subtle text-ink-primary border border-stone-border text-xs font-medium transition-colors">
+                            <svg class="w-3.5 h-3.5 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>地圖</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Day 2 住宿 -->
+                <div class="p-4 rounded-xl bg-stone-card border border-stone-border editorial-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-[11px] text-sage font-medium tracking-wider">
+                            <span class="px-2 py-0.5 bg-sage-tint rounded text-[10px]">DAY 2 宿・礁溪鄉</span>
+                            <span>溫泉飯店</span>
+                        </div>
+                        <p class="mt-2 font-serif text-base font-semibold text-ink-primary">
+                            東旅湯宿溫泉飯店-風華漾館
+                        </p>
+                    </div>
+                    <div class="mt-3.5 pt-3 border-t border-stone-border/60 flex items-center gap-2">
+                        <a href="https://reurl.cc/NOv2Mk" target="_blank" rel="noopener noreferrer" 
+                           class="flex-1 inline-flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-lg bg-sage text-white hover:bg-sage-dark text-xs font-medium transition-colors">
+                            <span>飯店介紹</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%97%85%E6%B9%AF%E5%AE%BF%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97-%E9%A2%A8%E8%8F%AF%E6%BC%BE%E9%A4%A8+%E7%A4%81%E6%BA%AA%E5%BE%B7%E9%99%BD%E8%B7%AF" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-1 py-1.5 px-2.5 rounded-lg bg-stone-bg hover:bg-stone-subtle text-ink-primary border border-stone-border text-xs font-medium transition-colors">
+                            <svg class="w-3.5 h-3.5 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>地圖</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. 黏性分頁導覽列 (Sticky Tabs) -->
+        <nav class="sticky top-0 z-30 bg-stone-bg/95 backdrop-blur-md border-b border-stone-border px-3 sm:px-8">
+            <div class="flex items-center justify-between overflow-x-auto no-scrollbar py-2.5 gap-1.5" role="tablist">
+                <button onclick="switchTab('all')" id="tab-all" class="tab-btn flex-shrink-0 min-w-[76px] py-2 px-3 rounded-md text-left transition-all border">
+                    <div class="text-[10px] tracking-wider opacity-80">三日完整</div>
+                    <div class="font-serif text-xs sm:text-sm font-semibold mt-0.5">全部行程</div>
+                </button>
+                <button onclick="switchTab('day1')" id="tab-day1" class="tab-btn flex-shrink-0 min-w-[82px] py-2 px-3 rounded-md text-left transition-all border">
+                    <div class="text-[10px] tracking-wider opacity-80 tabular-nums">11/14 週六</div>
+                    <div class="font-serif text-xs sm:text-sm font-semibold mt-0.5">Day 1</div>
+                </button>
+                <button onclick="switchTab('day2')" id="tab-day2" class="tab-btn flex-shrink-0 min-w-[82px] py-2 px-3 rounded-md text-left transition-all border">
+                    <div class="text-[10px] tracking-wider opacity-80 tabular-nums">11/15 週日</div>
+                    <div class="font-serif text-xs sm:text-sm font-semibold mt-0.5">Day 2</div>
+                </button>
+                <button onclick="switchTab('day3')" id="tab-day3" class="tab-btn flex-shrink-0 min-w-[82px] py-2 px-3 rounded-md text-left transition-all border">
+                    <div class="text-[10px] tracking-wider opacity-80 tabular-nums">11/16 週一</div>
+                    <div class="font-serif text-xs sm:text-sm font-semibold mt-0.5">Day 3</div>
+                </button>
+                <button onclick="switchTab('summary')" id="tab-summary" class="tab-btn flex-shrink-0 min-w-[106px] py-2 px-3 rounded-md text-left transition-all border">
+                    <div class="text-[10px] tracking-wider opacity-80">導航・時刻</div>
+                    <div class="font-serif text-xs sm:text-sm font-semibold mt-0.5">路線與滯留總表</div>
+                </button>
+            </div>
+        </nav>
+
+        <!-- 3. 主要內容區 -->
+        <main id="main-content" class="flex-1 px-4 py-6 sm:px-10 sm:py-9">
+            <!-- 內容由 JavaScript 動態渲染 -->
+        </main>
+
+        <!-- 4. 頁尾版權與小工具 -->
+        <footer class="px-6 py-8 border-t border-stone-border bg-stone-subtle/50 text-center">
+            <p class="font-serif text-xs text-ink-muted tracking-widest">
+                宜蘭山海・三日慢旅｜2026.11.14 – 11.16
+            </p>
+            <p class="mt-1.5 text-[11px] text-ink-light">
+                點擊時間軸卡片可標記「已抵達」，進度將自動儲存於您的手機瀏覽器中。
+            </p>
+            <div class="mt-4 flex justify-center gap-3">
+                <button onclick="resetProgress()" class="text-[11px] text-ink-muted hover:text-ink-primary underline underline-offset-4 transition-colors">
+                    重置打卡進度
+                </button>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- 行程資料庫與邏輯 -->
+    <script>
+        // 完整三日行程資料
+        const ITINERARY_DATA = {
+            day1: {
+                dayLabel: "DAY 01",
+                date: "11/14 週六",
+                themeTitle: "頭城海線 ➔ 大溪漁港海鮮 ➔ 動植物王國 ➔ 傳藝園區 ➔ 羅東夜市",
+                summary: "沿著東北角海岸線向南漫行，從外澳海風、現撈海味到冬山包棟夜話。",
+                items: [
+                    {
+                        id: "d1-1",
+                        type: "stop",
+                        time: "08:15–09:15",
+                        duration: "滯留 1 小時",
+                        category: "集合點",
+                        title: "外澳遊客中心（集合點）",
+                        mapQuery: "外澳遊客中心 宜蘭頭城",
+                        description: "全員會合、看衝浪客、買咖啡海景早餐。",
+                        highlights: [
+                            "車程：A車/B車約 2.2–2.5 小時、C車接人後約 50 分抵達。",
+                            "滯留時間：1 小時（全員會合、看衝浪客、買咖啡海景早餐）。"
+                        ]
+                    },
+                    {
+                        id: "d1-t1",
+                        type: "transit",
+                        time: "09:15–09:30",
+                        duration: "車程約 15 分鐘",
+                        route: "沿台 2 線往北"
+                    },
+                    {
+                        id: "d1-2",
+                        type: "stop",
+                        time: "09:30–10:45",
+                        duration: "滯留 1 小時 15 分",
+                        category: "海岸奇景",
+                        title: "北關海潮公園",
+                        mapQuery: "北關海潮公園 宜蘭頭城",
+                        description: "漫步海潮步道、觀賞一線天巨石奇岩與龜山島。",
+                        highlights: [
+                            "滯留時間：1 小時 15 分（漫步海潮步道、觀賞一線天巨石奇岩與龜山島）。"
+                        ]
+                    },
+                    {
+                        id: "d1-t2",
+                        type: "transit",
+                        time: "10:45–10:55",
+                        duration: "車程約 5–8 分鐘",
+                        route: "往北抵達大溪漁港"
+                    },
+                    {
+                        id: "d1-3",
+                        type: "stop",
+                        time: "11:00–12:30",
+                        duration: "滯留 1.5 小時",
+                        category: "午餐・海味",
+                        title: "頭城大溪漁港（現撈海鮮午宴）",
+                        mapQuery: "頭城大溪漁港 宜蘭",
+                        description: "於大溪漁港活海鮮餐廳享用現撈海產合菜，吃飽可逛一下漁港拍賣市集。",
+                        highlights: [
+                            "滯留時間：1.5 小時（於大溪漁港活海鮮餐廳享用現撈海產合菜，吃飽可逛一下漁港拍賣市集）。"
+                        ]
+                    },
+                    {
+                        id: "d1-t3",
+                        type: "transit",
+                        time: "12:30–13:10",
+                        duration: "車程約 40 分鐘",
+                        route: "沿台 2 線轉台 2 戊南下壯圍"
+                    },
+                    {
+                        id: "d1-4",
+                        type: "stop",
+                        time: "13:15–14:45",
+                        duration: "滯留 1.5 小時",
+                        category: "療癒互動",
+                        title: "蘭陽動植物王國",
+                        mapQuery: "蘭陽動植物王國 宜蘭壯圍",
+                        description: "全台首座袋鼠戶外互動、近距離餵食水豚與羊駝，園區有免費大停車場。",
+                        highlights: [
+                            "滯留時間：1.5 小時（全台首座袋鼠戶外互動、近距離餵食水豚與羊駝，園區有免費大停車場）。"
+                        ]
+                    },
+                    {
+                        id: "d1-t4",
+                        type: "transit",
+                        time: "14:45–15:00",
+                        duration: "車程約 12 分鐘",
+                        route: "往五結鄉"
+                    },
+                    {
+                        id: "d1-5",
+                        type: "stop",
+                        time: "15:00–17:15",
+                        duration: "滯留 2 小時 15 分",
+                        category: "文化漫步",
+                        title: "國立傳統藝術中心（宜蘭傳藝園區）",
+                        mapQuery: "國立傳統藝術中心 宜蘭傳藝園區 五結",
+                        description: "穿梭紅磚民藝老街、欣賞工藝展演、臨水街古厝水岸散步拍照。",
+                        highlights: [
+                            "滯留時間：2 小時 15 分（穿梭紅磚民藝老街、欣賞工藝展演、臨水街古厝水岸散步拍照）。"
+                        ]
+                    },
+                    {
+                        id: "d1-t5",
+                        type: "transit",
+                        time: "17:15–17:45",
+                        duration: "車程約 25 分鐘",
+                        route: "前往冬山鄉"
+                    },
+                    {
+                        id: "d1-6",
+                        type: "stop",
+                        time: "17:45–18:30",
+                        duration: "滯留 45 分鐘",
+                        category: "Check-in",
+                        title: "甜蜜的家包棟民宿（冬山）",
+                        mapQuery: "甜蜜的家包棟民宿 宜蘭冬山",
+                        externalLink: "https://reurl.cc/mz8pj1",
+                        externalLabel: "查看民宿資訊",
+                        description: "辦理入住、分配房間、放行李稍作休息。",
+                        highlights: [
+                            "滯留時間：45 分鐘（辦理入住、分配房間、放行李稍作休息）。"
+                        ]
+                    },
+                    {
+                        id: "d1-7",
+                        type: "stop",
+                        time: "18:30–20:00",
+                        duration: "用餐 1.5 小時",
+                        category: "晚餐・和菜",
+                        title: "晚餐・在地土雞山產和菜（晨溪休閒農場餐廳）",
+                        mapQuery: "晨溪休閒農場餐廳 宜蘭冬山",
+                        description: "推薦：晨溪休閒農場餐廳（冬山鄉，白斬土雞、特色山產料理，13 人大圓桌約 4,000–5,000 元，大停車場、無低消限制）。",
+                        highlights: [
+                            "白斬土雞、特色山產料理，13 人大圓桌約 4,000–5,000 元",
+                            "附設大停車場、無低消限制"
+                        ]
+                    },
+                    {
+                        id: "d1-8",
+                        type: "stop",
+                        time: "20:15–22:00",
+                        duration: "滯留 1 小時 45 分",
+                        category: "睡前夜市",
+                        title: "睡前夜市・羅東觀光夜市",
+                        mapQuery: "羅東觀光夜市 宜蘭羅東",
+                        description: "距離民宿僅 15 分鐘車程，品嚐羊肉湯、蔥肉串、包心粉圓後回民宿歡聚休眠。",
+                        highlights: [
+                            "滯留時間：1 小時 45 分（距離民宿僅 15 分鐘車程，品嚐羊肉湯、蔥肉串、包心粉圓後回民宿歡聚休眠）。"
+                        ]
+                    }
+                ]
+            },
+            day2: {
+                dayLabel: "DAY 02",
+                date: "11/15 週日",
+                themeTitle: "清水地熱晨間避人潮 ➔ 見晴懷古步道 ➔ 礁溪溫泉宿 ➔ 週日限定夜市",
+                summary: "早起搶佔清水地熱包場時段，午後走入雲霧森林鐵道，夜宿礁溪暖湯洗塵。",
+                items: [
+                    {
+                        id: "d2-1",
+                        type: "stop",
+                        time: "07:30–08:30",
+                        duration: "1 小時",
+                        category: "晨間・退房",
+                        title: "民宿早餐與退房（甜蜜的家包棟民宿）",
+                        mapQuery: "甜蜜的家包棟民宿 宜蘭冬山",
+                        externalLink: "https://reurl.cc/mz8pj1",
+                        externalLabel: "民宿連結",
+                        description: "享用民宿早餐與辦理退房，準備準時出發前往大同鄉清水地熱。",
+                        highlights: [
+                            "07:30–08:30 準時退房出發，搶攻 09:00 清水地熱開園黃金時段。"
+                        ]
+                    },
+                    {
+                        id: "d2-t1",
+                        type: "transit",
+                        time: "08:30–09:00",
+                        duration: "車程約 25–30 分鐘",
+                        route: "沿台 7 丙直達大同鄉"
+                    },
+                    {
+                        id: "d2-2",
+                        type: "stop",
+                        time: "09:00–11:00",
+                        duration: "滯留 2 小時",
+                        category: "黃金避人潮",
+                        title: "清水地熱公園（黃金避人潮時段）",
+                        mapQuery: "清水地熱公園 宜蘭大同",
+                        description: "09:00 開園準時抵達，停車完全免排隊，竹簍租借、煮蛋池、溫泉玉米與戶外免費足湯幾乎包場，在 11:00 週末遊客大湧入前準時離開！",
+                        highlights: [
+                            "滯留時間：2 小時。",
+                            "關鍵優勢：09:00 開園準時抵達，停車完全免排隊，竹簍租借、煮蛋池、溫泉玉米與戶外免費足湯幾乎包場，在 11:00 週末遊客大湧入前準時離開！"
+                        ]
+                    },
+                    {
+                        id: "d2-t2",
+                        type: "transit",
+                        time: "11:00–12:20",
+                        duration: "車程約 1 小時 20 分",
+                        route: "從清水地熱接台 7 線、台 7 甲，沿宜專 1 線爬升至 23K 見晴步道"
+                    },
+                    {
+                        id: "d2-3",
+                        type: "stop",
+                        time: "12:30–14:30",
+                        duration: "滯留 2 小時",
+                        category: "雲海光影",
+                        title: "見晴懷古步道（尋訪雲海與光影交錯）",
+                        mapQuery: "見晴懷古步道 宜蘭大同",
+                        description: "全長約 900 公尺平緩木棧鐵軌路徑，往返健行約 1 小時，留 1 小時在展望台等候雲霧翻騰與樹隙光拍照。",
+                        highlights: [
+                            "滯留時間：2 小時。",
+                            "步道狀況：全長約 900 公尺平緩木棧鐵軌路徑，往返健行約 1 小時，留 1 小時在展望台等候雲霧翻騰與樹隙光拍照。"
+                        ]
+                    },
+                    {
+                        id: "d2-t3",
+                        type: "transit",
+                        time: "14:30–16:00",
+                        duration: "車程約 1.5 小時",
+                        route: "下山開往礁溪"
+                    },
+                    {
+                        id: "d2-4",
+                        type: "stop",
+                        time: "16:30–17:30",
+                        duration: "滯留 1 小時",
+                        category: "溫泉旅宿",
+                        title: "東旅湯宿溫泉飯店-風華漾館（礁溪德陽路）",
+                        mapQuery: "東旅湯宿溫泉飯店-風華漾館 礁溪德陽路",
+                        externalLink: "https://reurl.cc/NOv2Mk",
+                        externalLabel: "查看飯店資訊",
+                        description: "進房享受客房溫泉湯池，泡湯洗滌爬山疲勞。",
+                        highlights: [
+                            "滯留時間：1 小時（進房享受客房溫泉湯池，泡湯洗滌爬山疲勞）。"
+                        ]
+                    },
+                    {
+                        id: "d2-5",
+                        type: "stop",
+                        time: "17:45–18:15",
+                        duration: "滯留 30 分鐘",
+                        category: "採買宵夜",
+                        title: "採買宵夜・鴨喜露滷味（礁溪一店）",
+                        mapQuery: "鴨喜露滷味 礁溪一店 宜蘭縣礁溪鄉溫泉路34號",
+                        description: "步行 3 分鐘至鴨喜露滷味（礁溪一店）（溫泉路 34 號），採買招牌鴨骨與鴨翅冷滷。",
+                        highlights: [
+                            "地址：宜蘭縣礁溪鄉溫泉路 34 號（步行 3 分鐘即達）"
+                        ]
+                    },
+                    {
+                        id: "d2-6",
+                        type: "stop",
+                        time: "18:30–20:00",
+                        duration: "用餐 1.5 小時",
+                        category: "晚餐・烤雞",
+                        title: "晚餐・礁溪特色招牌烤雞和菜（蘭揚蘆花雞料理餐廳）",
+                        mapQuery: "蘭揚蘆花雞料理餐廳 宜蘭礁溪",
+                        description: "推薦：蘭揚蘆花雞料理餐廳（炭烤蘆花雞皮脆肉甜、搭配宜蘭西魯肉與特色熱炒，合菜一桌約 4,000–5,000 元，大停車場、無人頭低消限制）。",
+                        highlights: [
+                            "炭烤蘆花雞皮脆肉甜、搭配宜蘭西魯肉與特色熱炒",
+                            "合菜一桌約 4,000–5,000 元，大停車場、無人頭低消限制"
+                        ]
+                    },
+                    {
+                        id: "d2-7",
+                        type: "stop",
+                        time: "20:15–21:30",
+                        duration: "滯留 1 小時 15 分",
+                        category: "週日限定",
+                        title: "睡前夜市・礁溪溫泉夜市（每週日限定）",
+                        mapQuery: "礁溪溫泉夜市 宜蘭礁溪",
+                        description: "礁溪週日限定流動夜市，平價在地小吃豐富，逛完回飯店泡湯睡覺。",
+                        highlights: [
+                            "滯留時間：1 小時 15 分（礁溪週日限定流動夜市，平價在地小吃豐富，逛完回飯店泡湯睡覺）。"
+                        ]
+                    }
+                ]
+            },
+            day3: {
+                dayLabel: "DAY 03",
+                date: "11/16 週一",
+                themeTitle: "五峰旗瀑布 ➔ 虎牌米粉 ➔ 壯圍風味和菜 ➔ 17:00 返抵南投",
+                summary: "吸飽山林負離子與懷舊米粉香氣，享用農村割稻飯後準時 13:45 上國五返程。",
+                items: [
+                    {
+                        id: "d3-1",
+                        type: "stop",
+                        time: "08:15–09:00",
+                        duration: "45 分鐘",
+                        category: "晨間・退房",
+                        title: "飯店早餐與退房（東旅湯宿溫泉飯店-風華漾館）",
+                        mapQuery: "東旅湯宿溫泉飯店-風華漾館 礁溪德陽路",
+                        externalLink: "https://reurl.cc/NOv2Mk",
+                        externalLabel: "飯店連結",
+                        description: "享用飯店早餐與辦理退房，準備前往礁溪山邊五峰旗瀑布。",
+                        highlights: [
+                            "08:15–09:00 完成早餐與退房手續"
+                        ]
+                    },
+                    {
+                        id: "d3-t1",
+                        type: "transit",
+                        time: "09:10–09:20",
+                        duration: "車程僅 10 分鐘",
+                        route: "往礁溪山邊"
+                    },
+                    {
+                        id: "d3-2",
+                        type: "stop",
+                        time: "09:20–10:45",
+                        duration: "滯留 1 小時 25 分",
+                        category: "森林負離子",
+                        title: "五峰旗瀑布",
+                        mapQuery: "五峰旗瀑布 宜蘭礁溪",
+                        description: "步道清涼平緩，漫步於濃密綠蔭與充沛負離子之中，欣賞第三層與第二層壯麗飛瀑。",
+                        highlights: [
+                            "滯留時間：1 小時 25 分（步道清涼平緩，漫步於濃密綠蔭與充沛負離子之中，欣賞第三層與第二層壯麗飛瀑）。"
+                        ]
+                    },
+                    {
+                        id: "d3-t2",
+                        type: "transit",
+                        time: "10:45–11:15",
+                        duration: "車程約 25 分鐘",
+                        route: "沿國五側車道往五結鄉"
+                    },
+                    {
+                        id: "d3-3",
+                        type: "stop",
+                        time: "11:15–12:30",
+                        duration: "滯留 1 小時 15 分",
+                        category: "懷舊體驗",
+                        title: "虎牌米粉產業文化館",
+                        mapQuery: "虎牌米粉產業文化館 宜蘭五結",
+                        description: "走進 1970 年代懷舊街景、參與米粉彩繪 DIY、品嚐館內免費無限量招待的香噴噴炒米粉。",
+                        highlights: [
+                            "滯留時間：1 小時 15 分（走進 1970 年代懷舊街景、參與米粉彩繪 DIY、品嚐館內免費無限量招待的香噴噴炒米粉）。"
+                        ]
+                    },
+                    {
+                        id: "d3-t3",
+                        type: "transit",
+                        time: "12:30–12:45",
+                        duration: "車程約 12 分鐘",
+                        route: "至壯圍交流道旁"
+                    },
+                    {
+                        id: "d3-4",
+                        type: "stop",
+                        time: "12:45–13:45",
+                        duration: "用餐 1 小時",
+                        category: "午餐・農村菜",
+                        title: "午餐・壯圍風味和菜（壯圍穀倉風味料理）",
+                        mapQuery: "壯圍穀倉風味料理 宜蘭壯圍",
+                        description: "推薦：壯圍穀倉風味料理（挑高穀倉內享用經典割稻飯與農村手路菜，一桌約 3,500–4,500 元，附贈麥芽糖 DIY，無低消限制；餐廳緊鄰國道五號北上交流道口）。",
+                        highlights: [
+                            "挑高穀倉內享用經典割稻飯與農村手路菜，一桌約 3,500–4,500 元",
+                            "附贈麥芽糖 DIY，無低消限制；餐廳緊鄰國道五號北上交流道口"
+                        ]
+                    },
+                    {
+                        id: "d3-5",
+                        type: "stop",
+                        time: "13:45 準時出發",
+                        duration: "車程約 2.5–2.8 小時",
+                        category: "準時返程",
+                        title: "13:45 準時上國道五號返程（時間嚴格控管）",
+                        mapQuery: "國道五號 宜蘭壯圍交流道",
+                        description: "週一下午國五與國三西部路況極佳，壯圍回南投約 200 公里，含休息站停留 15 分鐘，車程約需 2.5 至 2.8 小時。",
+                        highlights: [
+                            "A 車返抵南投時間：約 16:40–16:55，順利達成下午 5 點前回到南投的需求。",
+                            "B 車返抵台中時間：約 16:15–16:30。",
+                            "C 車送弟弟回新店後返抵新竹時間：新店約 14:40，新竹約 15:45。"
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // 狀態管理
+        let currentTab = 'all';
+        let showTransit = true;
+        let completedStops = JSON.parse(localStorage.getItem('yilan_trip_2026_completed') || '{}');
+
+        // 顯示 Toast 提示
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = msg;
+            toast.classList.remove('opacity-0', 'translate-y-2');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-2');
+            }, 2400);
+        }
+
+        // 切換分頁
+        function switchTab(tabId) {
+            currentTab = tabId;
+            updateTabStyles();
+            renderContent();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 切換顯示/隱藏車程
+        function toggleTransit() {
+            showTransit = !showTransit;
+            renderContent();
+            showToast(showTransit ? "已顯示行車移動段" : "已隱藏行車移動段（僅看景點）");
+        }
+
+        // 更新分頁按鈕樣式
+        function updateTabStyles() {
+            const tabs = ['all', 'day1', 'day2', 'day3', 'summary'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if (!btn) return;
+                if (t === currentTab) {
+                    btn.className = "tab-btn flex-shrink-0 py-2 px-3 rounded-md text-left transition-all border bg-sage text-white border-sage shadow-sm";
+                } else {
+                    btn.className = "tab-btn flex-shrink-0 py-2 px-3 rounded-md text-left transition-all border bg-stone-card text-ink-muted border-stone-border hover:border-sage-light hover:text-ink-primary";
+                }
+            });
+        }
+
+        // 切換行程打卡狀態
+        function toggleComplete(stopId) {
+            completedStops[stopId] = !completedStops[stopId];
+            localStorage.setItem('yilan_trip_2026_completed', JSON.stringify(completedStops));
+            renderContent();
+            if (completedStops[stopId]) {
+                showToast("已標記為完成・旅途順利");
+            }
+        }
+
+        // 重置進度
+        function resetProgress() {
+            completedStops = {};
+            localStorage.removeItem('yilan_trip_2026_completed');
+            renderContent();
+            showToast("已重置所有行程打卡進度");
+        }
+
+        // 複製單日或全部行程文字（供貼上 LINE 群組）
+        function copyItineraryText(targetKey) {
+            const keys = targetKey === 'all' ? ['day1', 'day2', 'day3'] : [targetKey];
+            let text = `【宜蘭山海・三日慢旅】2026.11.14–11.16 行程表\n`;
+            text += `🏠 Day 1 宿：甜蜜的家包棟民宿 https://reurl.cc/mz8pj1\n`;
+            text += `♨️ Day 2 宿：東旅湯宿溫泉飯店-風華漾館 https://reurl.cc/NOv2Mk\n`;
+            text += `========================\n`;
+
+            keys.forEach(k => {
+                const day = ITINERARY_DATA[k];
+                text += `\n■ ${day.dayLabel}（${day.date}）\n${day.themeTitle}\n------------------------\n`;
+                day.items.forEach(item => {
+                    if (item.type === 'stop') {
+                        const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.mapQuery)}`;
+                        text += `● ${item.time}｜${item.title}（${item.duration}）\n`;
+                        text += `   ${item.description}\n`;
+                        if (item.highlights) {
+                            item.highlights.forEach(h => {
+                                text += `   - ${h}\n`;
+                            });
+                        }
+                        text += `   📍 導航：${mapUrl}\n`;
+                    } else {
+                        text += `  ↓ ${item.time}｜行車移動（${item.duration}，${item.route}）\n`;
+                    }
+                });
+            });
+
+            text += `\n========================\n祝大家旅途平安愉快！`;
+
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(targetKey === 'all' ? "已複製三日完整行程，可直接貼上 LINE 群組！" : `已複製 ${ITINERARY_DATA[targetKey].date} 行程！`);
+            } catch (err) {
+                showToast("複製失敗，請手動選取文字");
+            }
+            document.body.removeChild(textArea);
+        }
+
+        // 渲染單日區塊 HTML
+        function buildDaySectionHTML(dayKey, isAllView = false) {
+            const dayData = ITINERARY_DATA[dayKey];
+            const stopsOnly = dayData.items.filter(i => i.type === 'stop');
+            const completedCount = stopsOnly.filter(i => completedStops[i.id]).length;
+
+            let html = `
+                <section class="${isAllView ? 'mb-14 pb-10 border-b-2 border-stone-border last:border-b-0 last:mb-0 last:pb-0' : ''}">
+                    <!-- 單日標題與操作列 -->
+                    <div class="pb-5 mb-6 border-b border-stone-border">
+                        <div class="flex flex-wrap items-center justify-between gap-2.5">
+                            <div class="flex items-center gap-2.5">
+                                <span class="font-serif text-xs tracking-[0.2em] text-sage font-semibold uppercase">${dayData.dayLabel}</span>
+                                <span class="w-1 h-1 rounded-full bg-stone-border"></span>
+                                <span class="text-xs font-medium text-ink-primary tabular-nums">${dayData.date}</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[11px] text-ink-muted bg-stone-subtle px-2.5 py-1 rounded-full tabular-nums">
+                                    進度 ${completedCount} / ${stopsOnly.length}
+                                </span>
+                                <button onclick="copyItineraryText('${dayKey}')" 
+                                    class="inline-flex items-center gap-1 text-[11px] font-medium text-sage hover:text-white bg-sage-tint hover:bg-sage border border-sage-light/50 px-2.5 py-1 rounded-full transition-colors">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                    </svg>
+                                    <span>複製本日</span>
+                                </button>
+                            </div>
+                        </div>
+                        <h2 class="mt-3 font-serif text-lg sm:text-xl font-semibold text-ink-primary leading-snug">
+                            ${dayData.themeTitle}
+                        </h2>
+                        <p class="mt-1.5 text-xs sm:text-sm text-ink-muted leading-relaxed">
+                            ${dayData.summary}
+                        </p>
+                    </div>
+
+                    <!-- 垂直時間軸 -->
+                    <div class="relative pl-4 sm:pl-6 space-y-1">
+                        <!-- 左側連續貫穿細線 -->
+                        <div class="absolute left-[21px] sm:left-[29px] top-4 bottom-4 w-[1px] bg-stone-border"></div>
+            `;
+
+            dayData.items.forEach(item => {
+                if (item.type === 'transit') {
+                    if (!showTransit) return;
+                    html += `
+                        <div class="relative flex items-center gap-4 py-2.5 pl-6 sm:pl-8">
+                            <div class="absolute left-[1.5px] sm:left-[1.5px] w-2.5 h-2.5 rounded-full bg-stone-bg border border-ink-light flex items-center justify-center">
+                                <div class="w-1 h-1 rounded-full bg-ink-light"></div>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-muted bg-stone-subtle/80 px-3.5 py-2 rounded-md border border-stone-border/70 w-full">
+                                <span class="font-mono text-[11px] text-ink-light tabular-nums">${item.time}</span>
+                                <span class="inline-flex items-center gap-1 font-medium text-ink-primary">
+                                    <svg class="w-3.5 h-3.5 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                                    </svg>
+                                    行車移動｜${item.duration}
+                                </span>
+                                <span class="text-ink-muted text-[11px]">（${item.route}）</span>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    const isDone = !!completedStops[item.id];
+                    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.mapQuery)}`;
+
+                    html += `
+                        <div class="relative pl-6 sm:pl-8 py-2">
+                            <!-- 時間軸圓點 -->
+                            <button onclick="toggleComplete('${item.id}')" title="標記已抵達"
+                                class="absolute left-[-4px] sm:left-[-4px] top-6 w-5 h-5 rounded-full border transition-all flex items-center justify-center z-10
+                                ${isDone ? 'bg-sage border-sage text-white' : 'bg-stone-card border-sage hover:scale-110'}">
+                                ${isDone 
+                                    ? '<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>' 
+                                    : '<span class="w-1.5 h-1.5 rounded-full bg-sage"></span>'}
+                            </button>
+
+                            <!-- 雜誌風內容卡片 -->
+                            <article class="rounded-xl border transition-all p-4 sm:p-5 editorial-shadow
+                                ${isDone ? 'bg-stone-subtle/60 border-stone-border opacity-80' : 'bg-stone-card border-stone-border hover:border-sage-light'}">
+                                
+                                <!-- 時間與分類標籤列 -->
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-mono text-xs sm:text-sm font-semibold text-sage-dark tabular-nums tracking-tight">
+                                            ${item.time}
+                                        </span>
+                                        <span class="text-[11px] px-2 py-0.5 rounded bg-sage-tint text-sage font-medium">
+                                            ${item.category}
+                                        </span>
+                                    </div>
+                                    <span class="text-[11px] text-ink-muted border border-stone-border px-2 py-0.5 rounded-full bg-stone-bg">
+                                        ${item.duration}
+                                    </span>
+                                </div>
+
+                                <!-- 景點標題 -->
+                                <h3 class="font-serif text-base sm:text-lg font-semibold text-ink-primary leading-snug ${isDone ? 'line-through text-ink-muted' : ''}">
+                                    ${item.title}
+                                </h3>
+
+                                <!-- 詳細說明 -->
+                                <p class="mt-2 text-xs sm:text-sm text-ink-muted leading-relaxed">
+                                    ${item.description}
+                                </p>
+
+                                <!-- 亮點 / 貼心提醒清單 -->
+                                ${item.highlights && item.highlights.length > 0 ? `
+                                    <ul class="mt-3 pt-3 border-t border-stone-border/70 space-y-1.5">
+                                        ${item.highlights.map(h => `
+                                            <li class="flex items-start gap-2 text-xs text-ink-primary/90 leading-relaxed">
+                                                <span class="text-sage mt-0.5">•</span>
+                                                <span>${h}</span>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                ` : ''}
+
+                                <!-- 底部操作按鈕列 -->
+                                <div class="mt-4 pt-3 border-t border-stone-border/50 flex flex-wrap items-center justify-between gap-2">
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <a href="${mapUrl}" target="_blank" rel="noopener noreferrer"
+                                           class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stone-bg hover:bg-sage hover:text-white text-ink-primary border border-stone-border hover:border-sage text-xs font-medium transition-colors">
+                                            <svg class="w-3.5 h-3.5 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            </svg>
+                                            <span>Google Maps 導航</span>
+                                        </a>
+
+                                        ${item.externalLink ? `
+                                            <a href="${item.externalLink}" target="_blank" rel="noopener noreferrer"
+                                               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sage-tint hover:bg-sage hover:text-white text-sage-dark border border-sage-light/40 text-xs font-medium transition-colors">
+                                                <span>${item.externalLabel || '開啟連結'}</span>
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                                </svg>
+                                            </a>
+                                        ` : ''}
+                                    </div>
+
+                                    <button onclick="toggleComplete('${item.id}')"
+                                        class="text-xs px-2.5 py-1 rounded-md transition-colors ${isDone ? 'text-sage font-medium bg-sage-tint' : 'text-ink-light hover:text-ink-primary'}">
+                                        ${isDone ? '✓ 已抵達' : '標記完成'}
+                                    </button>
+                                </div>
+                            </article>
+                        </div>
+                    `;
+                }
+            });
+
+            html += `</div></section>`;
+            return html;
+        }
+
+        // 渲染「全程精確路線與滯留時間總表」
+        function renderSummaryTableView() {
+            const days = ['day1', 'day2', 'day3'];
+            
+            let html = `
+                <div class="fade-in space-y-8">
+                    <!-- 標題與複製按鈕 -->
+                    <div class="pb-5 border-b border-stone-border flex flex-wrap items-end justify-between gap-4">
+                        <div>
+                            <span class="font-serif text-xs tracking-[0.2em] text-sage font-semibold uppercase">MASTER SCHEDULE & ROUTE</span>
+                            <h2 class="mt-1 font-serif text-xl sm:text-2xl font-semibold text-ink-primary">
+                                全程精確路線與滯留時間總表
+                            </h2>
+                            <p class="mt-1.5 text-xs sm:text-sm text-ink-muted">
+                                一覽三日所有景點、行車移動時間、滯留時長，點擊地點名稱即可直接開啟 Google Maps 導航。
+                            </p>
+                        </div>
+                        <button onclick="copyItineraryText('all')" 
+                            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-sage text-white hover:bg-sage-dark text-xs font-medium transition-colors shadow-sm">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                            </svg>
+                            <span>複製三日完整行程</span>
+                        </button>
+                    </div>
+
+                    <!-- 三車會合與 Day 3 返程時間精確總覽 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-stone-card rounded-xl border border-stone-border p-4 sm:p-5 editorial-shadow">
+                            <div class="flex items-center gap-2 text-sage font-serif font-semibold text-sm mb-2.5">
+                                <span class="w-2 h-2 rounded-full bg-sage"></span>
+                                <h3>Day 1 首站集結時刻（外澳遊客中心）</h3>
+                            </div>
+                            <ul class="space-y-1.5 text-xs text-ink-primary leading-relaxed">
+                                <li>• <strong>會合時段</strong>：11/14（週六）08:15–09:15（滯留 1 小時）</li>
+                                <li>• <strong>A車 / B車</strong>：車程約 2.2–2.5 小時</li>
+                                <li>• <strong>C車</strong>：接人後車程約 50 分鐘抵達</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-stone-card rounded-xl border border-stone-border p-4 sm:p-5 editorial-shadow">
+                            <div class="flex items-center gap-2 text-sage font-serif font-semibold text-sm mb-2.5">
+                                <span class="w-2 h-2 rounded-full bg-sage"></span>
+                                <h3>Day 3 返程時間控管（13:45 準時上國五）</h3>
+                            </div>
+                            <ul class="space-y-1.5 text-xs text-ink-primary leading-relaxed">
+                                <li>• <strong>A 車返抵南投</strong>：約 <strong class="text-sage-dark tabular-nums">16:40–16:55</strong>（達成 17:00 前返抵南投）</li>
+                                <li>• <strong>B 車返抵台中</strong>：約 <strong class="text-sage-dark tabular-nums">16:15–16:30</strong></li>
+                                <li>• <strong>C 車送弟返竹</strong>：新店約 <strong class="text-sage-dark tabular-nums">14:40</strong>，新竹約 <strong class="text-sage-dark tabular-nums">15:45</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+            `;
+
+            // 逐日渲染精確總表
+            days.forEach(dayKey => {
+                const day = ITINERARY_DATA[dayKey];
+                const stops = day.items.filter(i => i.type === 'stop');
+                
+                html += `
+                    <div class="bg-stone-card rounded-xl border border-stone-border overflow-hidden editorial-shadow">
+                        <!-- 表格日標題與動線流向 -->
+                        <div class="bg-stone-subtle/80 px-4 py-3.5 sm:px-6 border-b border-stone-border">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <span class="font-serif font-semibold text-sm sm:text-base text-ink-primary">
+                                    ${day.dayLabel}（${day.date}）
+                                </span>
+                                <span class="text-[11px] text-sage font-medium bg-sage-tint px-2.5 py-0.5 rounded-full border border-sage-light/30">
+                                    共 ${stops.length} 個停靠點
+                                </span>
+                            </div>
+                            <!-- 動線箭頭流向列 -->
+                            <div class="mt-2 flex flex-wrap items-center gap-1.5 text-[11px] text-ink-muted">
+                                ${stops.map((s, idx) => `
+                                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.mapQuery)}" target="_blank" rel="noopener noreferrer"
+                                       class="hover:text-sage-dark hover:underline font-medium text-ink-primary">
+                                        ${s.title.split('（')[0]}
+                                    </a>
+                                    ${idx < stops.length - 1 ? '<span class="text-sage">➔</span>' : ''}
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- 響應式明細表格 -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="border-b border-stone-border bg-stone-bg/60 text-[11px] text-ink-muted font-medium">
+                                        <th class="py-2.5 px-3 sm:px-5 whitespace-nowrap">時段</th>
+                                        <th class="py-2.5 px-3 sm:px-4">地點 / 路線階段</th>
+                                        <th class="py-2.5 px-3 sm:px-4 whitespace-nowrap">行車 / 滯留時間</th>
+                                        <th class="py-2.5 px-3 sm:px-5 text-right whitespace-nowrap">導航 / 連結</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-stone-border/70 text-xs">
+                                    ${day.items.map(item => {
+                                        if (item.type === 'transit') {
+                                            return `
+                                                <tr class="bg-stone-bg/40 text-ink-muted">
+                                                    <td class="py-2 px-3 sm:px-5 font-mono text-[11px] tabular-nums whitespace-nowrap">${item.time}</td>
+                                                    <td class="py-2 px-3 sm:px-4">
+                                                        <span class="inline-flex items-center gap-1 text-[11px]">
+                                                            <span class="text-sage">↓</span> 行車移動：${item.route}
+                                                        </span>
+                                                    </td>
+                                                    <td class="py-2 px-3 sm:px-4 whitespace-nowrap text-[11px]">${item.duration}</td>
+                                                    <td class="py-2 px-3 sm:px-5 text-right text-[11px] text-ink-light">—</td>
+                                                </tr>
+                                            `;
+                                        } else {
+                                            const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.mapQuery)}`;
+                                            return `
+                                                <tr class="hover:bg-sage-tint/30 transition-colors">
+                                                    <td class="py-3 px-3 sm:px-5 font-mono font-semibold text-sage-dark tabular-nums whitespace-nowrap align-top">
+                                                        ${item.time}
+                                                    </td>
+                                                    <td class="py-3 px-3 sm:px-4 align-top">
+                                                        <div class="font-serif font-semibold text-ink-primary text-xs sm:text-sm">
+                                                            ${item.title}
+                                                        </div>
+                                                        <div class="mt-0.5 text-[11px] text-ink-muted line-clamp-2">
+                                                            ${item.description}
+                                                        </div>
+                                                    </td>
+                                                    <td class="py-3 px-3 sm:px-4 whitespace-nowrap align-top">
+                                                        <span class="inline-block px-2 py-0.5 rounded bg-stone-subtle text-ink-primary text-[11px] font-medium">
+                                                            ${item.duration}
+                                                        </span>
+                                                    </td>
+                                                    <td class="py-3 px-3 sm:px-5 text-right whitespace-nowrap align-top">
+                                                        <div class="inline-flex flex-col sm:flex-row items-end sm:items-center gap-1.5">
+                                                            <a href="${mapUrl}" target="_blank" rel="noopener noreferrer"
+                                                               class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-sage-tint hover:bg-sage text-sage-dark hover:text-white text-[11px] font-medium transition-colors">
+                                                                <span>📍 地圖</span>
+                                                            </a>
+                                                            ${item.externalLink ? `
+                                                                <a href="${item.externalLink}" target="_blank" rel="noopener noreferrer"
+                                                                   class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-stone-subtle hover:bg-ink-primary text-ink-primary hover:text-white text-[11px] font-medium transition-colors">
+                                                                    <span>介紹</span>
+                                                                </a>
+                                                            ` : ''}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            `;
+                                        }
+                                    }).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            return html;
+        }
+
+        // 渲染主內容
+        function renderContent() {
+            const container = document.getElementById('main-content');
+            
+            if (currentTab === 'summary') {
+                container.innerHTML = renderSummaryTableView();
+                return;
+            }
+
+            // 頂部工具列（顯示/隱藏車程 + 複製完整行程）
+            let toolbarHtml = `
+                <div class="fade-in">
+                    <div class="mb-6 p-3 rounded-xl bg-stone-card border border-stone-border flex flex-wrap items-center justify-between gap-2.5 editorial-shadow">
+                        <button onclick="toggleTransit()" 
+                            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors
+                            ${showTransit ? 'bg-sage-tint text-sage-dark border-sage-light/50' : 'bg-stone-bg text-ink-muted border-stone-border'}">
+                            <span class="w-2 h-2 rounded-full ${showTransit ? 'bg-sage' : 'bg-ink-light'}"></span>
+                            <span>${showTransit ? '顯示車程移動中' : '已隱藏車程移動'}</span>
+                        </button>
+
+                        <div class="flex items-center gap-2">
+                            <button onclick="switchTab('summary')" 
+                                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-stone-bg hover:bg-stone-subtle text-ink-primary border border-stone-border text-xs font-medium transition-colors">
+                                <span>📊 路線與滯留總表</span>
+                            </button>
+                            <button onclick="copyItineraryText('all')" 
+                                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-sage text-white hover:bg-sage-dark text-xs font-medium transition-colors">
+                                <span>複製三日行程</span>
+                            </button>
+                        </div>
+                    </div>
+            `;
+
+            if (currentTab === 'all') {
+                toolbarHtml += buildDaySectionHTML('day1', true);
+                toolbarHtml += buildDaySectionHTML('day2', true);
+                toolbarHtml += buildDaySectionHTML('day3', true);
+            } else {
+                toolbarHtml += buildDaySectionHTML(currentTab, false);
+            }
+
+            toolbarHtml += `</div>`;
+            container.innerHTML = toolbarHtml;
+        }
+
+        // 初始化頁面
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTabStyles();
+            renderContent();
+        });
+    </script>
+</body>
+</html>
