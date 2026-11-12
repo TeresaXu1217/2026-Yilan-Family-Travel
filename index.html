@@ -89,34 +89,45 @@
     <div class="max-w-3xl mx-auto min-h-screen flex flex-col border-x border-stone-border/60 bg-stone-bg">
 
         <!-- 1. Hero 雜誌封面區塊 -->
-        <header class="relative px-6 pt-10 pb-8 sm:px-10 sm:pt-14 sm:pb-10 border-b border-stone-border bg-gradient-to-b from-[#E8EAE6] to-stone-bg">
-            <!-- 右上角直書裝飾標籤 -->
-            <div class="absolute top-8 right-6 sm:right-10 flex items-start gap-2 text-ink-muted select-none">
-                <span class="writing-vertical text-[11px] tracking-[0.28em] font-serif border-l border-stone-border pl-1.5 py-1">
-                    宜蘭三日紀行・二〇二六
-                </span>
-                <span class="writing-vertical text-[10px] tracking-[0.2em] text-sage font-medium pt-2">
-                    山海與溫泉
-                </span>
+        <header class="relative px-5 pt-7 pb-7 sm:px-10 sm:pt-12 sm:pb-10 border-b border-stone-border bg-gradient-to-b from-[#E8EAE6] to-stone-bg">
+            <!-- 頂部刊頭與直書裝飾：手機版橫向對齊避免文字打架，桌機版右上角直書 -->
+            <div class="flex items-start justify-between gap-3">
+                <div>
+                    <!-- 刊頭小標 -->
+                    <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-sm bg-sage-tint border border-sage-light/40 text-sage text-[11px] tracking-widest mb-3">
+                        <span>HOME — YILAN</span>
+                        <span class="text-sage-light">|</span>
+                        <span class="tabular-nums">11.14 — 11.16</span>
+                    </div>
+
+                    <!-- 主標題 -->
+                    <h1 class="font-serif text-2xl sm:text-4xl font-semibold tracking-wider text-ink-primary leading-snug">
+                        宜蘭山海・三日慢旅
+                    </h1>
+                </div>
+
+                <!-- 桌機版右上角直書裝飾標籤（手機版隱藏直書避免與標題重疊） -->
+                <div class="hidden sm:flex items-start gap-2 text-ink-muted select-none flex-shrink-0 pt-1">
+                    <span class="writing-vertical text-[11px] tracking-[0.28em] font-serif border-l border-stone-border pl-1.5 py-1">
+                        宜蘭三日紀行・二〇二六
+                    </span>
+                    <span class="writing-vertical text-[10px] tracking-[0.2em] text-sage font-medium pt-2">
+                        山海與溫泉
+                    </span>
+                </div>
             </div>
 
-            <!-- 刊頭小標 -->
-            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-sm bg-sage-tint border border-sage-light/40 text-sage text-[11px] tracking-widest mb-4">
-                <span>HOME — YILAN</span>
-                <span class="text-sage-light">|</span>
-                <span class="tabular-nums">11.14 — 11.16</span>
+            <!-- 手機版副標徽章 -->
+            <div class="sm:hidden mt-1.5 text-[11px] font-serif tracking-[0.18em] text-sage">
+                宜蘭三日紀行・二〇二六｜山海與溫泉
             </div>
 
-            <!-- 主標題 -->
-            <h1 class="font-serif text-2xl sm:text-4xl font-semibold tracking-wider text-ink-primary leading-snug pr-12">
-                宜蘭山海・三日慢旅
-            </h1>
             <p class="mt-2.5 text-xs sm:text-sm text-ink-muted tracking-wide leading-relaxed max-w-xl">
                 13人家族同行・A/B/C 三車自駕紀行。從頭城海岸線晨光、清水地熱包場、雲霧繚繞的見晴古道，到礁溪暖湯與在地風味合菜。
             </p>
 
-            <!-- 兩晚住宿快速資訊卡（含訂房連結 + Google Maps） -->
-            <div class="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <!-- 兩晚住宿快速資訊卡（已更新正確網址 + Google Maps） -->
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <!-- Day 1 住宿 -->
                 <div class="p-4 rounded-xl bg-stone-card border border-stone-border editorial-shadow flex flex-col justify-between">
                     <div>
@@ -129,7 +140,7 @@
                         </p>
                     </div>
                     <div class="mt-3.5 pt-3 border-t border-stone-border/60 flex items-center gap-2">
-                        <a href="https://reurl.cc/mz8pj1" target="_blank" rel="noopener noreferrer" 
+                        <a href="https://www.airbnb.com.tw/rooms/1754320055345499154?adults=1&s=67&unique_share_id=84502542-d72a-4ff4-a36c-5e30fcf927fa" target="_blank" rel="noopener noreferrer" 
                            class="flex-1 inline-flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-lg bg-sage text-white hover:bg-sage-dark text-xs font-medium transition-colors">
                             <span>民宿介紹</span>
                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,7 +170,7 @@
                         </p>
                     </div>
                     <div class="mt-3.5 pt-3 border-t border-stone-border/60 flex items-center gap-2">
-                        <a href="https://reurl.cc/NOv2Mk" target="_blank" rel="noopener noreferrer" 
+                        <a href="https://www.hoteleastgroup.com/hotels/yunoyado-dy/room.php" target="_blank" rel="noopener noreferrer" 
                            class="flex-1 inline-flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-lg bg-sage text-white hover:bg-sage-dark text-xs font-medium transition-colors">
                             <span>飯店介紹</span>
                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -197,6 +208,10 @@
                 <button onclick="switchTab('day3')" id="tab-day3" class="tab-btn flex-shrink-0 min-w-[82px] py-2 px-3 rounded-md text-left transition-all border">
                     <div class="text-[10px] tracking-wider opacity-80 tabular-nums">11/16 週一</div>
                     <div class="font-serif text-xs sm:text-sm font-semibold mt-0.5">Day 3</div>
+                </button>
+                <button onclick="switchTab('prep')" id="tab-prep" class="tab-btn flex-shrink-0 min-w-[96px] py-2 px-3 rounded-md text-left transition-all border">
+                    <div class="text-[10px] tracking-wider opacity-80">穿搭・清單</div>
+                    <div class="font-serif text-xs sm:text-sm font-semibold mt-0.5">天氣與裝備</div>
                 </button>
                 <button onclick="switchTab('summary')" id="tab-summary" class="tab-btn flex-shrink-0 min-w-[106px] py-2 px-3 rounded-md text-left transition-all border">
                     <div class="text-[10px] tracking-wider opacity-80">導航・時刻</div>
@@ -346,7 +361,7 @@
                         category: "Check-in",
                         title: "甜蜜的家包棟民宿（冬山）",
                         mapQuery: "甜蜜的家包棟民宿 宜蘭冬山",
-                        externalLink: "https://reurl.cc/mz8pj1",
+                        externalLink: "https://www.airbnb.com.tw/rooms/1754320055345499154?adults=1&s=67&unique_share_id=84502542-d72a-4ff4-a36c-5e30fcf927fa",
                         externalLabel: "查看民宿資訊",
                         description: "辦理入住、分配房間、放行李稍作休息。",
                         highlights: [
@@ -396,7 +411,7 @@
                         category: "晨間・退房",
                         title: "民宿早餐與退房（甜蜜的家包棟民宿）",
                         mapQuery: "甜蜜的家包棟民宿 宜蘭冬山",
-                        externalLink: "https://reurl.cc/mz8pj1",
+                        externalLink: "https://www.airbnb.com.tw/rooms/1754320055345499154?adults=1&s=67&unique_share_id=84502542-d72a-4ff4-a36c-5e30fcf927fa",
                         externalLabel: "民宿連結",
                         description: "享用民宿早餐與辦理退房，準備準時出發前往大同鄉清水地熱。",
                         highlights: [
@@ -460,7 +475,7 @@
                         category: "溫泉旅宿",
                         title: "東旅湯宿溫泉飯店-風華漾館（礁溪德陽路）",
                         mapQuery: "東旅湯宿溫泉飯店-風華漾館 礁溪德陽路",
-                        externalLink: "https://reurl.cc/NOv2Mk",
+                        externalLink: "https://www.hoteleastgroup.com/hotels/yunoyado-dy/room.php",
                         externalLabel: "查看飯店資訊",
                         description: "進房享受客房溫泉湯池，泡湯洗滌爬山疲勞。",
                         highlights: [
@@ -523,7 +538,7 @@
                         category: "晨間・退房",
                         title: "飯店早餐與退房（東旅湯宿溫泉飯店-風華漾館）",
                         mapQuery: "東旅湯宿溫泉飯店-風華漾館 礁溪德陽路",
-                        externalLink: "https://reurl.cc/NOv2Mk",
+                        externalLink: "https://www.hoteleastgroup.com/hotels/yunoyado-dy/room.php",
                         externalLabel: "飯店連結",
                         description: "享用飯店早餐與辦理退房，準備前往礁溪山邊五峰旗瀑布。",
                         highlights: [
@@ -613,7 +628,190 @@
         // 狀態管理
         let currentTab = 'all';
         let showTransit = true;
+        let packingExpanded = true;
         let completedStops = JSON.parse(localStorage.getItem('yilan_trip_2026_completed') || '{}');
+        let checkedPacking = JSON.parse(localStorage.getItem('yilan_trip_2026_packing') || '{}');
+
+        // 模組 2：行前準備清單資料（控制 10 字以內精簡項目）
+        const PACKING_LIST_DATA = [
+            {
+                group: "山海與雨備",
+                items: [
+                    { id: "pk-1", label: "防風防水外套" },
+                    { id: "pk-2", label: "輕便雨衣＋摺疊傘" },
+                    { id: "pk-3", label: "防滑運動／健行鞋" },
+                    { id: "pk-4", label: "備用襪子" }
+                ]
+            },
+            {
+                group: "隨身與泡湯",
+                items: [
+                    { id: "pk-5", label: "暈車藥" },
+                    { id: "pk-6", label: "小毛巾" },
+                    { id: "pk-7", label: "行動電源＋車充線、環保提袋" }
+                ]
+            }
+        ];
+
+        // 每日周邊雨備景點資料
+        const RAIN_BACKUP_DATA = {
+            day1: {
+                badge: "🌊 Day 1 周邊雨備景點",
+                spots: [
+                    {
+                        name: "蘭陽博物館",
+                        meta: "頭城鎮｜門票 $100",
+                        mapQuery: "蘭陽博物館 宜蘭頭城",
+                        desc: "距離外澳與北關海潮公園僅 3–10 分鐘車程，全室內建築美拍，可直接取代上午海邊步道。"
+                    },
+                    {
+                        name: "羅東林業文化園區",
+                        meta: "羅東鎮｜免門票",
+                        mapQuery: "羅東林業文化園區 宜蘭羅東",
+                        desc: "就在冬山民宿與羅東夜市旁，日式木造建築與貯木池極具氛圍，森產館、森活館等室內展館週六全開，可順遊或取代下午戶外行程。"
+                    },
+                    {
+                        name: "大鯖魚夢工廠",
+                        meta: "蘇澳鎮｜免門票",
+                        mapQuery: "大鯖魚夢工廠 宜蘭蘇澳",
+                        desc: "位於冬山南邊隔壁的蘇澳交流道旁（車程約 12 分鐘），全室內原木文青展館，適合下午順遊採買水產伴手禮，或取代蘭陽動植物王國。"
+                    }
+                ]
+            },
+            day2: {
+                badge: "🌲 Day 2 周邊雨備景點",
+                spots: [
+                    {
+                        name: "金車噶瑪蘭威士忌酒廠",
+                        meta: "員山鄉｜門票 $200 可全額折抵",
+                        mapQuery: "金車噶瑪蘭威士忌酒廠 宜蘭員山",
+                        desc: "就在往清水地熱與太平山的必經台7線旁，全室內參觀酒窖與品酒喝咖啡，可作山區雨備首站。"
+                    },
+                    {
+                        name: "宜蘭設治紀念館",
+                        meta: "宜蘭市｜門票 $30",
+                        mapQuery: "宜蘭設治紀念館 宜蘭市",
+                        desc: "和洋折衷百年官邸與庭園非常漂亮。"
+                    },
+                    {
+                        name: "宜蘭人故事館",
+                        meta: "宜蘭市｜免門票",
+                        mapQuery: "宜蘭人故事館 宜蘭市",
+                        desc: "純白古典議會建築與復古花磚大廳極好拍（同樣週一休館）。"
+                    },
+                    {
+                        name: "亞典菓子工場",
+                        meta: "宜蘭市｜免門票",
+                        mapQuery: "亞典菓子工場 宜蘭市",
+                        desc: "可喝免費咖啡、試吃年輪蛋糕並採買伴手禮。"
+                    },
+                    {
+                        name: "湯圍溝溫泉公園",
+                        meta: "礁溪鄉｜免門票",
+                        mapQuery: "湯圍溝溫泉公園 宜蘭礁溪",
+                        desc: "就在晚上住宿的東旅湯宿步行範圍內，若週日流動夜市因雨取消，可改逛周邊店家與有遮雨棚的泡腳池。"
+                    }
+                ]
+            },
+            day3: {
+                badge: "⛰️ Day 3 周邊雨備景點",
+                spots: [
+                    {
+                        name: "潭酵天地觀光工廠",
+                        meta: "礁溪鄉｜免門票",
+                        mapQuery: "潭酵天地觀光工廠 宜蘭礁溪",
+                        desc: "距離五峰旗風景區車程僅 5 分鐘，全室內植栽設計空間，可免費試喝果醋躲雨，直接取代五峰旗健行。"
+                    },
+                    {
+                        name: "橘之鄉蜜餞形象館",
+                        meta: "宜蘭市｜免門票",
+                        mapQuery: "橘之鄉蜜餞形象館 宜蘭市",
+                        desc: "北歐風透明玻璃屋與巨型木桌椅極好拍，距離壯圍穀倉車程約 15 分鐘。"
+                    },
+                    {
+                        name: "甲子蘭酒文物館（宜蘭酒廠）",
+                        meta: "宜蘭市｜免門票",
+                        mapQuery: "甲子蘭酒文物館 宜蘭酒廠",
+                        desc: "全年無休的室內老酒文物館，好停車且可買紅麴伴手禮，離壯圍穀倉車程僅約 12 分鐘。"
+                    },
+                    {
+                        name: "宜蘭文學館",
+                        meta: "宜蘭市｜低消飲品，週一照常營業",
+                        mapQuery: "宜蘭文學館 宜蘭市",
+                        desc: "就在宜蘭酒廠旁步行 5 分鐘，日式木造老屋茶屋，雨天喝熱茶小坐非常愜意。"
+                    }
+                ]
+            }
+        };
+
+        // 渲染行前準備清單
+        function renderPackingList() {
+            const container = document.getElementById('packing-list-body');
+            const counter = document.getElementById('packing-counter');
+            if (!container || !counter) return;
+
+            let totalItems = 0;
+            let checkedCount = 0;
+
+            let html = '';
+            PACKING_LIST_DATA.forEach(group => {
+                html += `
+                    <div class="bg-stone-bg/80 rounded-lg p-2.5 border border-stone-border/70">
+                        <div class="text-[11px] font-semibold text-sage mb-2 flex items-center gap-1.5">
+                            <span class="w-1 h-1 rounded-full bg-sage"></span>
+                            <span>${group.group}</span>
+                        </div>
+                        <div class="space-y-1.5">
+                `;
+                group.items.forEach(item => {
+                    totalItems++;
+                    const isChecked = !!checkedPacking[item.id];
+                    if (isChecked) checkedCount++;
+
+                    html += `
+                        <button onclick="togglePackingItem('${item.id}')" 
+                            class="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-left text-xs transition-all border
+                            ${isChecked ? 'bg-sage-tint/70 border-sage-light/50 text-ink-muted' : 'bg-stone-card border-stone-border/80 text-ink-primary hover:border-sage-light'}">
+                            <span class="w-4 h-4 rounded flex-shrink-0 flex items-center justify-center border transition-colors
+                                ${isChecked ? 'bg-sage border-sage text-white' : 'bg-stone-bg border-stone-border'}">
+                                ${isChecked ? '<svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>' : ''}
+                            </span>
+                            <span class="${isChecked ? 'line-through opacity-75' : 'font-medium'}">${item.label}</span>
+                        </button>
+                    `;
+                });
+                html += `</div></div>`;
+            });
+
+            container.innerHTML = html;
+            counter.textContent = `${checkedCount} / ${totalItems}`;
+        }
+
+        function togglePackingItem(id) {
+            checkedPacking[id] = !checkedPacking[id];
+            localStorage.setItem('yilan_trip_2026_packing', JSON.stringify(checkedPacking));
+            renderPackingList();
+        }
+
+        function resetPackingList() {
+            checkedPacking = {};
+            localStorage.removeItem('yilan_trip_2026_packing');
+            renderPackingList();
+            showToast("已重置行前裝備勾選");
+        }
+
+        function togglePackingDrawer() {
+            packingExpanded = !packingExpanded;
+            const body = document.getElementById('packing-list-body');
+            const btn = document.getElementById('packing-toggle-btn');
+            if (packingExpanded) {
+                body.classList.remove('hidden');
+                btn.textContent = '收合';
+            } else {
+                body.classList.add('hidden');
+                btn.textContent = '展開';
+            }
+        }
 
         // 顯示 Toast 提示
         function showToast(msg) {
@@ -645,7 +843,7 @@
 
         // 更新分頁按鈕樣式
         function updateTabStyles() {
-            const tabs = ['all', 'day1', 'day2', 'day3', 'summary'];
+            const tabs = ['all', 'day1', 'day2', 'day3', 'prep', 'summary'];
             tabs.forEach(t => {
                 const btn = document.getElementById(`tab-${t}`);
                 if (!btn) return;
@@ -679,8 +877,8 @@
         function copyItineraryText(targetKey) {
             const keys = targetKey === 'all' ? ['day1', 'day2', 'day3'] : [targetKey];
             let text = `【宜蘭山海・三日慢旅】2026.11.14–11.16 行程表\n`;
-            text += `🏠 Day 1 宿：甜蜜的家包棟民宿 https://reurl.cc/mz8pj1\n`;
-            text += `♨️ Day 2 宿：東旅湯宿溫泉飯店-風華漾館 https://reurl.cc/NOv2Mk\n`;
+            text += `🏠 Day 1 宿：甜蜜的家包棟民宿 https://www.airbnb.com.tw/rooms/1754320055345499154?adults=1&s=67&unique_share_id=84502542-d72a-4ff4-a36c-5e30fcf927fa\n`;
+            text += `♨️ Day 2 宿：東旅湯宿溫泉飯店-風華漾館 https://www.hoteleastgroup.com/hotels/yunoyado-dy/room.php\n`;
             text += `========================\n`;
 
             keys.forEach(k => {
@@ -873,8 +1071,153 @@
                 }
             });
 
-            html += `</div></section>`;
+            html += `</div>`;
+
+            // 每日周邊雨備景點卡片區
+            const rainData = RAIN_BACKUP_DATA[dayKey];
+            if (rainData) {
+                html += `
+                    <div class="mt-7 rounded-xl bg-sage-tint/55 border border-sage-light/40 p-4 sm:p-5">
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <h4 class="font-serif text-sm sm:text-base font-semibold text-sage-dark">
+                                ${rainData.badge}
+                            </h4>
+                            <span class="text-[10px] text-sage bg-stone-card px-2 py-0.5 rounded-full border border-sage-light/30">
+                                室內備案・隨時切換
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            ${rainData.spots.map(spot => {
+                                const rMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.mapQuery)}`;
+                                return `
+                                    <div class="bg-stone-card rounded-lg border border-stone-border/90 p-3.5 flex flex-col justify-between editorial-shadow">
+                                        <div>
+                                            <div class="flex items-start justify-between gap-2">
+                                                <h5 class="font-serif text-xs sm:text-sm font-semibold text-ink-primary">
+                                                    ${spot.name}
+                                                </h5>
+                                                <a href="${rMapUrl}" target="_blank" rel="noopener noreferrer"
+                                                   class="flex-shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded bg-sage-tint hover:bg-sage text-sage-dark hover:text-white text-[11px] font-medium transition-colors">
+                                                    <span>📍 導航</span>
+                                                </a>
+                                            </div>
+                                            <div class="mt-1 inline-block text-[10px] font-medium text-sage bg-sage-tint/70 px-2 py-0.5 rounded">
+                                                ${spot.meta}
+                                            </div>
+                                            <p class="mt-2 text-xs text-ink-muted leading-relaxed">
+                                                ${spot.desc}
+                                            </p>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            html += `</section>`;
             return html;
+        }
+
+        // 渲染「天氣與裝備」（與路線導覽總表同層級）
+        function renderWeatherAndPrepView() {
+            return `
+                <div class="fade-in space-y-8">
+                    <!-- 標題列 -->
+                    <div class="pb-5 border-b border-stone-border">
+                        <span class="font-serif text-xs tracking-[0.2em] text-sage font-semibold uppercase">WEATHER & PACKING</span>
+                        <h2 class="mt-1 font-serif text-xl sm:text-2xl font-semibold text-ink-primary">
+                            三日天氣與穿搭速覽・行前裝備清單
+                        </h2>
+                        <p class="mt-1.5 text-xs sm:text-sm text-ink-muted">
+                            山區與海邊溫差大，建議採洋蔥式穿法；裝備清單勾選狀態將自動儲存在您的裝置中。
+                        </p>
+                    </div>
+
+                    <!-- 模組 1｜三日天氣與穿搭橫卡（3 欄並排卡片） -->
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-serif font-semibold tracking-wider text-ink-primary flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                                三日天氣與穿搭速覽
+                            </span>
+                            <span class="text-[11px] text-ink-light">11/14 – 11/16 宜蘭氣候預估</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                            <!-- Day 1 天氣 -->
+                            <div class="p-4 rounded-xl bg-stone-card border border-stone-border editorial-shadow flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between gap-1 text-[11px] font-medium">
+                                        <span class="text-sage font-semibold">DAY 1｜11/14 週六</span>
+                                        <span class="px-2 py-0.5 rounded-full bg-sage-tint text-sage-dark font-mono tabular-nums">21–27°C</span>
+                                    </div>
+                                    <div class="mt-1.5 text-xs font-medium text-ink-primary">
+                                        晴時多雲・海風大
+                                    </div>
+                                </div>
+                                <p class="mt-3 pt-2.5 border-t border-stone-border/60 text-xs text-ink-muted leading-relaxed">
+                                    <span class="text-sage font-medium">穿搭：</span>透氣長/短袖＋薄防風外套（外澳、北關海邊防風遮陽）
+                                </p>
+                            </div>
+
+                            <!-- Day 2 天氣 -->
+                            <div class="p-4 rounded-xl bg-stone-card border border-stone-border editorial-shadow flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between gap-1 text-[11px] font-medium">
+                                        <span class="text-sage font-semibold">DAY 2｜11/15 週日</span>
+                                        <span class="px-2 py-0.5 rounded-full bg-sage-tint text-sage-dark font-mono tabular-nums">21–25°C</span>
+                                    </div>
+                                    <div class="mt-1.5 text-xs font-medium text-ink-primary">
+                                        短暫陣雨・濕涼 <span class="text-[11px] text-sage font-normal">（太平山 10–15°C）</span>
+                                    </div>
+                                </div>
+                                <p class="mt-3 pt-2.5 border-t border-stone-border/60 text-xs text-ink-muted leading-relaxed">
+                                    <span class="text-sage font-medium">穿搭：</span>發熱衣/刷毛中層＋防風防水外套（見晴步道午後起霧濕冷）
+                                </p>
+                            </div>
+
+                            <!-- Day 3 天氣 -->
+                            <div class="p-4 rounded-xl bg-stone-card border border-stone-border editorial-shadow flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between gap-1 text-[11px] font-medium">
+                                        <span class="text-sage font-semibold">DAY 3｜11/16 週一</span>
+                                        <span class="px-2 py-0.5 rounded-full bg-sage-tint text-sage-dark font-mono tabular-nums">21–24°C</span>
+                                    </div>
+                                    <div class="mt-1.5 text-xs font-medium text-ink-primary">
+                                        陰短暫陣雨
+                                    </div>
+                                </div>
+                                <p class="mt-3 pt-2.5 border-t border-stone-border/60 text-xs text-ink-muted leading-relaxed">
+                                    <span class="text-sage font-medium">穿搭：</span>輕便排汗衣＋薄外套＋防滑運動鞋（五峰旗瀑布階梯濕滑）
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 模組 2｜可勾選裝備清單（沿用 localStorage 打卡機制） -->
+                    <div class="rounded-xl bg-stone-card border border-stone-border p-4 sm:p-5 editorial-shadow">
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="w-5 h-5 rounded-md bg-sage-tint text-sage flex items-center justify-center text-xs font-semibold">✓</span>
+                                <span class="font-serif text-sm sm:text-base font-semibold text-ink-primary">
+                                    行前準備 Checklist
+                                </span>
+                                <span id="packing-counter" class="ml-1 text-[11px] text-sage font-mono tabular-nums bg-sage-tint px-2 py-0.5 rounded-full">
+                                    0 / 7
+                                </span>
+                            </div>
+                            <button onclick="resetPackingList()" class="text-xs text-ink-muted hover:text-sage-dark underline underline-offset-2 px-2 py-1 transition-colors">
+                                重置勾選
+                            </button>
+                        </div>
+
+                        <div id="packing-list-body" class="mt-4 pt-3.5 border-t border-stone-border/70 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                            <!-- 由 renderPackingList() 動態渲染 -->
+                        </div>
+                    </div>
+                </div>
+            `;
         }
 
         // 渲染「全程精確路線與滯留時間總表」
@@ -906,14 +1249,21 @@
                     <!-- 三車會合與 Day 3 返程時間精確總覽 -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="bg-stone-card rounded-xl border border-stone-border p-4 sm:p-5 editorial-shadow">
-                            <div class="flex items-center gap-2 text-sage font-serif font-semibold text-sm mb-2.5">
-                                <span class="w-2 h-2 rounded-full bg-sage"></span>
-                                <h3>Day 1 首站集結時刻（外澳遊客中心）</h3>
+                            <div class="flex items-center justify-between gap-2 mb-2.5">
+                                <div class="flex items-center gap-2 text-sage font-serif font-semibold text-sm">
+                                    <span class="w-2 h-2 rounded-full bg-sage"></span>
+                                    <h3>Day 1 三車發車與會合時刻表</h3>
+                                </div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%96%E6%BE%B3%E9%81%8A%E5%AE%A2%E4%B8%AD%E5%BF%83+%E5%AE%9C%E8%98%AD%E9%A0%AD%E5%9F%8E" target="_blank" rel="noopener noreferrer"
+                                   class="text-[11px] text-sage hover:underline font-medium">📍 外澳地圖</a>
                             </div>
-                            <ul class="space-y-1.5 text-xs text-ink-primary leading-relaxed">
-                                <li>• <strong>會合時段</strong>：11/14（週六）08:15–09:15（滯留 1 小時）</li>
-                                <li>• <strong>A車 / B車</strong>：車程約 2.2–2.5 小時</li>
-                                <li>• <strong>C車</strong>：接人後車程約 50 分鐘抵達</li>
+                            <ul class="space-y-2 text-xs text-ink-primary leading-relaxed">
+                                <li>• <strong>A車（南投直達）</strong>：<strong class="text-sage-dark tabular-nums">04:45–05:00</strong> 出發 ➔ 國三接國五（約 2.5 小時）</li>
+                                <li>• <strong>B車（新竹直達）</strong>：<strong class="text-sage-dark tabular-nums">05:45–06:00</strong> 出發 ➔ 國三接國五（約 1.5 小時）</li>
+                                <li>• <strong>C車（新竹經新北載人）</strong>：<strong class="text-sage-dark tabular-nums">05:35</strong> 出發 ➔ <strong class="text-sage-dark tabular-nums">06:30</strong> 新店捷運站接弟弟 ➔ 接國五（全程約 2 小時）</li>
+                                <li class="pt-1.5 mt-1.5 border-t border-stone-border/70 text-sage-dark font-medium">
+                                    📍 <strong>全員會合</strong>：<span class="tabular-nums">07:45–08:15</span> 外澳遊客中心（看衝浪、吃早餐）
+                                </li>
                             </ul>
                         </div>
 
@@ -922,7 +1272,7 @@
                                 <span class="w-2 h-2 rounded-full bg-sage"></span>
                                 <h3>Day 3 返程時間控管（13:45 準時上國五）</h3>
                             </div>
-                            <ul class="space-y-1.5 text-xs text-ink-primary leading-relaxed">
+                            <ul class="space-y-2 text-xs text-ink-primary leading-relaxed">
                                 <li>• <strong>A 車返抵南投</strong>：約 <strong class="text-sage-dark tabular-nums">16:40–16:55</strong>（達成 17:00 前返抵南投）</li>
                                 <li>• <strong>B 車返抵台中</strong>：約 <strong class="text-sage-dark tabular-nums">16:15–16:30</strong></li>
                                 <li>• <strong>C 車送弟返竹</strong>：新店約 <strong class="text-sage-dark tabular-nums">14:40</strong>，新竹約 <strong class="text-sage-dark tabular-nums">15:45</strong></li>
@@ -933,96 +1283,54 @@
 
             // 逐日渲染精確總表
             days.forEach(dayKey => {
-                const day = ITINERARY_DATA[dayKey];
-                const stops = day.items.filter(i => i.type === 'stop');
-                
+                const dayData = ITINERARY_DATA[dayKey];
                 html += `
                     <div class="bg-stone-card rounded-xl border border-stone-border overflow-hidden editorial-shadow">
-                        <!-- 表格日標題與動線流向 -->
-                        <div class="bg-stone-subtle/80 px-4 py-3.5 sm:px-6 border-b border-stone-border">
-                            <div class="flex flex-wrap items-center justify-between gap-2">
-                                <span class="font-serif font-semibold text-sm sm:text-base text-ink-primary">
-                                    ${day.dayLabel}（${day.date}）
-                                </span>
-                                <span class="text-[11px] text-sage font-medium bg-sage-tint px-2.5 py-0.5 rounded-full border border-sage-light/30">
-                                    共 ${stops.length} 個停靠點
-                                </span>
-                            </div>
-                            <!-- 動線箭頭流向列 -->
-                            <div class="mt-2 flex flex-wrap items-center gap-1.5 text-[11px] text-ink-muted">
-                                ${stops.map((s, idx) => `
-                                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.mapQuery)}" target="_blank" rel="noopener noreferrer"
-                                       class="hover:text-sage-dark hover:underline font-medium text-ink-primary">
-                                        ${s.title.split('（')[0]}
-                                    </a>
-                                    ${idx < stops.length - 1 ? '<span class="text-sage">➔</span>' : ''}
-                                `).join('')}
+                        <div class="px-4 py-3.5 sm:px-5 bg-sage-tint/60 border-b border-stone-border flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-serif font-semibold text-sage tracking-wider">${dayData.dayLabel}｜${dayData.date}</span>
+                                <h3 class="font-serif text-sm sm:text-base font-semibold text-ink-primary mt-0.5">${dayData.themeTitle}</h3>
                             </div>
                         </div>
-
-                        <!-- 響應式明細表格 -->
                         <div class="overflow-x-auto">
-                            <table class="w-full text-left border-collapse">
+                            <table class="w-full text-left border-collapse text-xs">
                                 <thead>
-                                    <tr class="border-b border-stone-border bg-stone-bg/60 text-[11px] text-ink-muted font-medium">
-                                        <th class="py-2.5 px-3 sm:px-5 whitespace-nowrap">時段</th>
-                                        <th class="py-2.5 px-3 sm:px-4">地點 / 路線階段</th>
-                                        <th class="py-2.5 px-3 sm:px-4 whitespace-nowrap">行車 / 滯留時間</th>
-                                        <th class="py-2.5 px-3 sm:px-5 text-right whitespace-nowrap">導航 / 連結</th>
+                                    <tr class="border-b border-stone-border bg-stone-bg/80 text-ink-muted">
+                                        <th class="py-2.5 px-3 sm:px-4 font-medium whitespace-nowrap">時段</th>
+                                        <th class="py-2.5 px-3 sm:px-4 font-medium">地點 / 移動路線</th>
+                                        <th class="py-2.5 px-3 sm:px-4 font-medium whitespace-nowrap">滯留 / 車程</th>
+                                        <th class="py-2.5 px-3 sm:px-4 font-medium text-right whitespace-nowrap">導航</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-stone-border/70 text-xs">
-                                    ${day.items.map(item => {
+                                <tbody class="divide-y divide-stone-border/60">
+                                    ${dayData.items.map(item => {
                                         if (item.type === 'transit') {
                                             return `
-                                                <tr class="bg-stone-bg/40 text-ink-muted">
-                                                    <td class="py-2 px-3 sm:px-5 font-mono text-[11px] tabular-nums whitespace-nowrap">${item.time}</td>
-                                                    <td class="py-2 px-3 sm:px-4">
-                                                        <span class="inline-flex items-center gap-1 text-[11px]">
-                                                            <span class="text-sage">↓</span> 行車移動：${item.route}
-                                                        </span>
-                                                    </td>
+                                                <tr class="bg-stone-subtle/40 text-ink-muted">
+                                                    <td class="py-2 px-3 sm:px-4 font-mono tabular-nums whitespace-nowrap text-[11px]">${item.time}</td>
+                                                    <td class="py-2 px-3 sm:px-4">🚗 行車移動（${item.route}）</td>
                                                     <td class="py-2 px-3 sm:px-4 whitespace-nowrap text-[11px]">${item.duration}</td>
-                                                    <td class="py-2 px-3 sm:px-5 text-right text-[11px] text-ink-light">—</td>
-                                                </tr>
-                                            `;
-                                        } else {
-                                            const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.mapQuery)}`;
-                                            return `
-                                                <tr class="hover:bg-sage-tint/30 transition-colors">
-                                                    <td class="py-3 px-3 sm:px-5 font-mono font-semibold text-sage-dark tabular-nums whitespace-nowrap align-top">
-                                                        ${item.time}
-                                                    </td>
-                                                    <td class="py-3 px-3 sm:px-4 align-top">
-                                                        <div class="font-serif font-semibold text-ink-primary text-xs sm:text-sm">
-                                                            ${item.title}
-                                                        </div>
-                                                        <div class="mt-0.5 text-[11px] text-ink-muted line-clamp-2">
-                                                            ${item.description}
-                                                        </div>
-                                                    </td>
-                                                    <td class="py-3 px-3 sm:px-4 whitespace-nowrap align-top">
-                                                        <span class="inline-block px-2 py-0.5 rounded bg-stone-subtle text-ink-primary text-[11px] font-medium">
-                                                            ${item.duration}
-                                                        </span>
-                                                    </td>
-                                                    <td class="py-3 px-3 sm:px-5 text-right whitespace-nowrap align-top">
-                                                        <div class="inline-flex flex-col sm:flex-row items-end sm:items-center gap-1.5">
-                                                            <a href="${mapUrl}" target="_blank" rel="noopener noreferrer"
-                                                               class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-sage-tint hover:bg-sage text-sage-dark hover:text-white text-[11px] font-medium transition-colors">
-                                                                <span>📍 地圖</span>
-                                                            </a>
-                                                            ${item.externalLink ? `
-                                                                <a href="${item.externalLink}" target="_blank" rel="noopener noreferrer"
-                                                                   class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-stone-subtle hover:bg-ink-primary text-ink-primary hover:text-white text-[11px] font-medium transition-colors">
-                                                                    <span>介紹</span>
-                                                                </a>
-                                                            ` : ''}
-                                                        </div>
-                                                    </td>
+                                                    <td class="py-2 px-3 sm:px-4 text-right text-[11px] text-ink-light">—</td>
                                                 </tr>
                                             `;
                                         }
+                                        const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.mapQuery)}`;
+                                        return `
+                                            <tr class="hover:bg-sage-tint/25 transition-colors">
+                                                <td class="py-2.5 px-3 sm:px-4 font-mono font-medium text-sage-dark tabular-nums whitespace-nowrap">${item.time}</td>
+                                                <td class="py-2.5 px-3 sm:px-4 font-medium text-ink-primary">
+                                                    <span class="inline-block text-[10px] px-1.5 py-0.2 rounded bg-sage-tint text-sage mr-1.5">${item.category}</span>
+                                                    ${item.title}
+                                                </td>
+                                                <td class="py-2.5 px-3 sm:px-4 whitespace-nowrap text-ink-muted">${item.duration}</td>
+                                                <td class="py-2.5 px-3 sm:px-4 text-right whitespace-nowrap">
+                                                    <a href="${mapUrl}" target="_blank" rel="noopener noreferrer"
+                                                       class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-sage-tint hover:bg-sage text-sage-dark hover:text-white font-medium transition-colors">
+                                                        <span>📍 地圖</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        `;
                                     }).join('')}
                                 </tbody>
                             </table>
@@ -1039,34 +1347,18 @@
         function renderContent() {
             const container = document.getElementById('main-content');
             
+            if (currentTab === 'prep') {
+                container.innerHTML = renderWeatherAndPrepView();
+                renderPackingList();
+                return;
+            }
+
             if (currentTab === 'summary') {
                 container.innerHTML = renderSummaryTableView();
                 return;
             }
 
-            // 頂部工具列（顯示/隱藏車程 + 複製完整行程）
-            let toolbarHtml = `
-                <div class="fade-in">
-                    <div class="mb-6 p-3 rounded-xl bg-stone-card border border-stone-border flex flex-wrap items-center justify-between gap-2.5 editorial-shadow">
-                        <button onclick="toggleTransit()" 
-                            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors
-                            ${showTransit ? 'bg-sage-tint text-sage-dark border-sage-light/50' : 'bg-stone-bg text-ink-muted border-stone-border'}">
-                            <span class="w-2 h-2 rounded-full ${showTransit ? 'bg-sage' : 'bg-ink-light'}"></span>
-                            <span>${showTransit ? '顯示車程移動中' : '已隱藏車程移動'}</span>
-                        </button>
-
-                        <div class="flex items-center gap-2">
-                            <button onclick="switchTab('summary')" 
-                                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-stone-bg hover:bg-stone-subtle text-ink-primary border border-stone-border text-xs font-medium transition-colors">
-                                <span>📊 路線與滯留總表</span>
-                            </button>
-                            <button onclick="copyItineraryText('all')" 
-                                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-sage text-white hover:bg-sage-dark text-xs font-medium transition-colors">
-                                <span>複製三日行程</span>
-                            </button>
-                        </div>
-                    </div>
-            `;
+            let toolbarHtml = `<div class="fade-in">`;
 
             if (currentTab === 'all') {
                 toolbarHtml += buildDaySectionHTML('day1', true);
